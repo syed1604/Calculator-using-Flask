@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Python Flask Calculator</h1>
+    <form method="POST" action="{{ url_for('calc') }}">
+        <label for="num1">number 1</label>
+        <input type="text" name="num1" >
+        <br/>
+        <label for="num2">number 2</label>
+        <input type="text" name="num2" >
+        <br/>
+        <label for="operation">operation</label>
+        <select id="operation" name="operation">
+            <option value="+">Add</option>
+            <option value="-">Sub</option>
+            <option value="/">Div</option>
+            <option value="*">Mul</option>
+        </select>
+        <br/>
+        <input type="submit" value="Submit"/>
+        <input type="reset"  value="RESET" style="color: red;"/>
+    </form>
+    {% if calculation_success == True %}
+        <br/>
+        <p>The calculation for {{input1}} {{operation}} {{input2}} = {{result}}</p>
+    {% endif %}  
+</body>
+</html>
